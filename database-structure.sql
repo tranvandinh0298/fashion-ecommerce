@@ -52,7 +52,7 @@ DROP TABLE IF EXISTS `attribute_options`;
 CREATE TABLE `attribute_options` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `attribute_id` bigint unsigned NOT NULL,
-  `value` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `value` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
@@ -81,7 +81,7 @@ DROP TABLE IF EXISTS `attributes`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `attributes` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
@@ -108,9 +108,9 @@ DROP TABLE IF EXISTS `categories`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `categories` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci,
+  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `type` tinyint NOT NULL DEFAULT '0' COMMENT '0: category, 1: collection',
   `status` tinyint NOT NULL DEFAULT '0',
   `image_id` bigint unsigned NOT NULL,
@@ -169,11 +169,11 @@ DROP TABLE IF EXISTS `failed_jobs`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `failed_jobs` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `uuid` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`)
@@ -224,14 +224,14 @@ DROP TABLE IF EXISTS `images`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `images` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `caption` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `caption` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint NOT NULL DEFAULT '0',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -240,7 +240,7 @@ CREATE TABLE `images` (
 
 LOCK TABLES `images` WRITE;
 /*!40000 ALTER TABLE `images` DISABLE KEYS */;
-INSERT INTO `images` VALUES (1,'about-01.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/about-01.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(2,'about-02.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/about-02.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(3,'avatar-01.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/avatar-01.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(4,'banner-01.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/banner-01.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(5,'banner-02.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/banner-02.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(6,'banner-03.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/banner-03.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(7,'banner-04.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/banner-04.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(8,'banner-05.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/banner-05.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(9,'banner-06.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/banner-06.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(10,'banner-07.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/banner-07.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(11,'banner-08.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/banner-08.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(12,'banner-09.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/banner-09.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(13,'bg-01.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/bg-01.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(14,'bg-02.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/bg-02.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(15,'blog-01.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/blog-01.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(16,'blog-02.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/blog-02.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(17,'blog-03.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/blog-03.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(18,'blog-04.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/blog-04.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(19,'blog-05.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/blog-05.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(20,'blog-06.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/blog-06.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(21,'gallery-01.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/gallery-01.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(22,'gallery-02.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/gallery-02.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(23,'gallery-03.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/gallery-03.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(24,'gallery-04.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/gallery-04.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(25,'gallery-05.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/gallery-05.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(26,'gallery-06.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/gallery-06.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(27,'gallery-07.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/gallery-07.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(28,'gallery-08.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/gallery-08.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(29,'gallery-09.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/gallery-09.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(30,'item-cart-01.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/item-cart-01.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(31,'item-cart-02.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/item-cart-02.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(32,'item-cart-03.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/item-cart-03.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(33,'item-cart-04.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/item-cart-04.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(34,'item-cart-05.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/item-cart-05.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(35,'product-01.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/product-01.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(36,'product-02.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/product-02.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(37,'product-03.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/product-03.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(38,'product-04.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/product-04.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(39,'product-05.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/product-05.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(40,'product-06.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/product-06.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(41,'product-07.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/product-07.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(42,'product-08.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/product-08.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(43,'product-09.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/product-09.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(44,'product-10.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/product-10.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(45,'product-11.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/product-11.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(46,'product-12.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/product-12.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(47,'product-13.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/product-13.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(48,'product-14.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/product-14.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(49,'product-15.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/product-15.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(50,'product-16.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/product-16.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(51,'product-detail-01.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/product-detail-01.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(52,'product-detail-02.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/product-detail-02.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(53,'product-detail-03.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/product-detail-03.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(54,'product-min-01.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/product-min-01.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(55,'product-min-02.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/product-min-02.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(56,'product-min-03.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/product-min-03.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(57,'slide-01.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/slide-01.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(58,'slide-02.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/slide-02.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(59,'slide-03.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/slide-03.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(60,'slide-04.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/slide-04.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(61,'slide-05.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/slide-05.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(62,'slide-06.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/slide-06.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(63,'slide-07.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/slide-07.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(64,'thumb-01.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/thumb-01.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(65,'thumb-02.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/thumb-02.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(66,'thumb-03.jpg','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-backoffice\\public\\ui/images/thumb-03.jpg',0,'2024-03-31 08:02:29','2024-04-07 14:08:43','2024-04-07 14:08:43'),(68,'Capture3.PNG','D:\\workspace\\source\\fashion-ecommerce\\fashion-ecommerce-core\\uploads\\Capture3.PNG',1,'2024-04-18 08:39:48','2024-04-18 08:39:48',NULL);
+INSERT INTO `images` VALUES (1,'about-01.jpg','storage/about-01.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(2,'about-02.jpg','storage/about-02.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(3,'avatar-01.jpg','storage/avatar-01.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(4,'banner-01.jpg','storage/banner-01.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(5,'banner-02.jpg','storage/banner-02.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(6,'banner-03.jpg','storage/banner-03.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(7,'banner-04.jpg','storage/banner-04.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(8,'banner-05.jpg','storage/banner-05.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(9,'banner-06.jpg','storage/banner-06.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(10,'banner-07.jpg','storage/banner-07.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(11,'banner-08.jpg','storage/banner-08.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(12,'banner-09.jpg','storage/banner-09.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(13,'bg-01.jpg','storage/bg-01.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(14,'bg-02.jpg','storage/bg-02.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(15,'blog-01.jpg','storage/blog-01.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(16,'blog-02.jpg','storage/blog-02.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(17,'blog-03.jpg','storage/blog-03.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(18,'blog-04.jpg','storage/blog-04.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(19,'blog-05.jpg','storage/blog-05.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(20,'blog-06.jpg','storage/blog-06.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(21,'gallery-01.jpg','storage/gallery-01.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(22,'gallery-02.jpg','storage/gallery-02.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(23,'gallery-03.jpg','storage/gallery-03.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(24,'gallery-04.jpg','storage/gallery-04.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(25,'gallery-05.jpg','storage/gallery-05.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(26,'gallery-06.jpg','storage/gallery-06.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(27,'gallery-07.jpg','storage/gallery-07.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(28,'gallery-08.jpg','storage/gallery-08.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(29,'gallery-09.jpg','storage/gallery-09.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(30,'item-cart-01.jpg','storage/item-cart-01.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(31,'item-cart-02.jpg','storage/item-cart-02.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(32,'item-cart-03.jpg','storage/item-cart-03.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(33,'item-cart-04.jpg','storage/item-cart-04.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(34,'item-cart-05.jpg','storage/item-cart-05.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(35,'product-01.jpg','storage/product-01.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(36,'product-02.jpg','storage/product-02.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(37,'product-03.jpg','storage/product-03.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(38,'product-04.jpg','storage/product-04.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(39,'product-05.jpg','storage/product-05.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(40,'product-06.jpg','storage/product-06.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(41,'product-07.jpg','storage/product-07.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(42,'product-08.jpg','storage/product-08.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(43,'product-09.jpg','storage/product-09.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(44,'product-10.jpg','storage/product-10.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(45,'product-11.jpg','storage/product-11.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(46,'product-12.jpg','storage/product-12.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(47,'product-13.jpg','storage/product-13.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(48,'product-14.jpg','storage/product-14.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(49,'product-15.jpg','storage/product-15.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(50,'product-16.jpg','storage/product-16.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(51,'product-detail-01.jpg','storage/product-detail-01.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(52,'product-detail-02.jpg','storage/product-detail-02.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(53,'product-detail-03.jpg','storage/product-detail-03.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(54,'product-min-01.jpg','storage/product-min-01.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(55,'product-min-02.jpg','storage/product-min-02.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(56,'product-min-03.jpg','storage/product-min-03.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(57,'slide-01.jpg','storage/slide-01.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(58,'slide-02.jpg','storage/slide-02.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(59,'slide-03.jpg','storage/slide-03.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(60,'slide-04.jpg','storage/slide-04.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(61,'slide-05.jpg','storage/slide-05.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(62,'slide-06.jpg','storage/slide-06.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(63,'slide-07.jpg','storage/slide-07.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(64,'thumb-01.jpg','storage/thumb-01.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(65,'thumb-02.jpg','storage/thumb-02.jpg',1,'2024-03-31 08:02:29','2024-03-31 08:02:29',NULL),(66,'thumb-03.jpg','storage/thumb-03.jpg',0,'2024-03-31 08:02:29','2024-04-07 14:08:43','2024-04-07 14:08:43');
 /*!40000 ALTER TABLE `images` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -253,7 +253,7 @@ DROP TABLE IF EXISTS `migrations`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `migrations` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -277,8 +277,8 @@ DROP TABLE IF EXISTS `password_resets`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `password_resets` (
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   KEY `password_resets_email_index` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -302,7 +302,7 @@ DROP TABLE IF EXISTS `payment_methods`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `payment_methods` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
@@ -328,11 +328,11 @@ DROP TABLE IF EXISTS `personal_access_tokens`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `personal_access_tokens` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `tokenable_id` bigint unsigned NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `abilities` text COLLATE utf8mb4_unicode_ci,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `abilities` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `last_used_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -360,10 +360,10 @@ DROP TABLE IF EXISTS `products`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `products` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `code` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -393,7 +393,7 @@ DROP TABLE IF EXISTS `skus`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `skus` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `code` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `product_id` bigint unsigned NOT NULL,
   `quantity` int NOT NULL DEFAULT '0',
   `price` double NOT NULL DEFAULT '0',
@@ -455,7 +455,7 @@ DROP TABLE IF EXISTS `transactions`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `transactions` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `amount` double NOT NULL DEFAULT '0',
   `payment_fee` double NOT NULL DEFAULT '0',
   `total_amount` double NOT NULL DEFAULT '0',
@@ -492,11 +492,11 @@ DROP TABLE IF EXISTS `users`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
@@ -523,4 +523,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-18 23:32:22
+-- Dump completed on 2024-04-22 23:39:00
